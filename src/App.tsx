@@ -1,24 +1,18 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
+
+import { BrowserRouter, Route, RouteComponentProps} from "react-router-dom"
+import SignIn from "./components/sign-in/SignIn"
+import LogIn from "./components/log-in/LogIn"
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+           <Route exact path="/sign-in" component={(routerProps:RouteComponentProps) => <SignIn {...routerProps}/>}/>
+           <Route exact path="/log-in" component={(routerProps:RouteComponentProps) => <LogIn {...routerProps}/>}/>
+      </BrowserRouter>
     </div>
   );
 }
